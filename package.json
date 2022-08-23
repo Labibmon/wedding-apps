@@ -1,0 +1,34 @@
+{
+  "name": "wedding-apps",
+  "version": "0.1.0",
+  "description": "Wedding Apps Anggi and Labib",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Labibmon/wedding-apps.git"
+  },
+  "author": "labib",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Labibmon/wedding-apps/issues"
+  },
+  "homepage": "https://github.com/Labibmon/wedding-apps#readme",
+  "dependencies": {
+    "next": "12.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.6",
+    "@types/react": "^18.0.17",
+    "eslint": "8.22.0",
+    "eslint-config-next": "12.2.5",
+    "typescript": "^4.7.4"
+  }
+}
