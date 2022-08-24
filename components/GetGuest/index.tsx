@@ -2,14 +2,14 @@ import { FC, useEffect, useState } from 'react';
 import { supabase } from 'utils/supabaseClient';
 
 const GetGuest: FC = () => {
+  const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const getProfile = async () => {
     try {
       setIsLoading(true)
-      // const user = await getCurrentUser()
 
-      let { data, error, status } = await supabase
+      const { data, error, status } = await supabase
         .from('guest')
         .select(`id, name, arrival, message`)
 
@@ -18,11 +18,7 @@ const GetGuest: FC = () => {
       }
 
       if (data) {
-        console.log('data', data);
-        
-        // setUsername(data.username)
-        // setWebsite(data.website)
-        // setAvatarUrl(data.avatar_url)
+        setData(data)
       }
     } catch (error) {
       alert(error.message)
@@ -34,10 +30,11 @@ const GetGuest: FC = () => {
   useEffect(() => {
     getProfile()
   }, [])
-  
 
-  return (
-    <>test</>
+  if(isLoading) <>Loading</>
+
+  return  (
+    <>{data?.[0]?.name}</>
   )
 }
 
