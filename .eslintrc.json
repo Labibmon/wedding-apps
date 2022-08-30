@@ -1,3 +1,127 @@
 {
-  "extends": "next/core-web-vitals"
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"jest/globals": true
+	},
+	"extends": [
+		"plugin:react/recommended",
+		// "plugin:@typescript-eslint/recommended",
+		"next/core-web-vitals",
+		"eslint:recommended"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"@typescript-eslint",
+		"jest",
+		"prefer-arrow"
+	],
+	"rules": {
+		"@next/next/no-img-element": "off",
+		"no-dupe-else-if": "error",
+		"no-trailing-spaces": "error",
+		"no-compare-neg-zero": "error",
+		"space-unary-ops": "error",
+		// "no-console": "error",
+		"space-in-parens": [
+			"error",
+			"never"
+		],
+		"eol-last": [
+			"error", 
+			"always"
+		],
+		"semi": [
+			"error", 
+			"never"
+		],
+		"comma-dangle": [
+			"error", 
+			"always-multiline"
+		],
+		"space-infix-ops": "error",
+		"comma-spacing": [
+			"error", 
+			{ 
+				"before": false, 
+				"after": true 
+			}
+		],
+		"object-curly-spacing": [
+			"error", 
+			"always"
+		],
+		"indent": [
+			"error", 
+			"tab"
+		],
+		"quotes": [
+			"error",
+			"single",
+			{
+				"avoidEscape": true,
+				"allowTemplateLiterals": false
+			}
+		],
+		"no-cond-assign": [
+			"error", 
+			"always"
+		],
+		"no-multiple-empty-lines": [
+			"error", 
+			{
+				"max": 1,
+				"maxEOF": 1,
+				"maxBOF": 0
+			}
+		],
+		"eqeqeq": [
+			"error", 
+			"always",
+			{ "null": "ignore" }
+		],
+		"operator-linebreak": [
+			"error",
+			"before"
+		],
+		"prefer-arrow/prefer-arrow-functions": [
+			"error",
+			{
+				"disallowPrototype": true,
+				"singleReturnOnly": false,
+				"classPropertiesAllowed": false
+			}
+		],
+		"prefer-arrow-callback": [
+			"error",
+			{
+				"allowNamedFunctions": true
+			}
+		],
+		"func-style": [
+			"error",
+			"expression",
+			{
+				"allowArrowFunctions": true
+			}
+		],
+		"@typescript-eslint/typedef": [
+			"error",
+			{
+				"arrowParameter": true,
+				"variableDeclaration": true
+			}
+		]
+	},
+	"globals": {
+		"JSX": true,
+		"NodeJS": true
+	}
 }

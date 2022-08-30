@@ -1,39 +1,12 @@
-import { FC, useEffect, useState } from 'react';
-import { supabase } from 'utils/supabaseClient';
+import { FC } from 'react';
+import useGuest from 'lib/getGuest';
 
 const GetGuest: FC = () => {
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const { data, isLoading } = useGuest()
 
-  const getProfile = async () => {
-    try {
-      setIsLoading(true)
+  if (isLoading) <>Loading</>
 
-      const { data, error, status } = await supabase
-        .from('guest')
-        .select(`id, name, arrival, message`)
-
-      if (error && status !== 406) {
-        throw error
-      }
-
-      if (data) {
-        setData(data)
-      }
-    } catch (error) {
-      alert(error.message)
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  useEffect(() => {
-    getProfile()
-  }, [])
-
-  if(isLoading) <>Loading</>
-
-  return  (
+  return (
     <>{data?.[0]?.name}</>
   )
 }
