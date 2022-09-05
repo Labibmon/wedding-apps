@@ -4,10 +4,10 @@ import {
 } from 'react-query'
 import '../styles/globals.css'
 
-function MyApp({
+const MyApp = ({ 
   Component,
   pageProps
-}) {
+}) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -18,12 +18,9 @@ function MyApp({
 
   return ( 
     <QueryClientProvider client={queryClient}>
-      <Component {
-        ...pageProps
-      }
-      />
-      </QueryClientProvider>
-      )
+      <Component { ...pageProps} />
+    </QueryClientProvider>
+  )
 }
 
 export default MyApp

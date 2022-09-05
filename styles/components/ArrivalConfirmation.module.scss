@@ -1,0 +1,88 @@
+@import '../utils/variables';
+
+.container {
+  position: fixed;
+  border: 1px solid #e4e6eb;
+  width: 100%;
+  bottom: 0;
+  max-width: 500px;
+  padding: calc(6px + 0.6vw);
+  text-align: center;
+  background-color: $color_white;
+}
+
+.confirmation {
+  &[class*='show'] {
+    display: block
+  }
+
+  &[class*='hidden'] {
+    display: none;
+  }
+}
+
+.form {
+  position: relative;
+  display: block;
+  text-align: center;
+
+  &[class*='show'] {
+    display: block
+  }
+
+  &[class*='hidden'] {
+    display: none;
+  }
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.title {
+  @include typographyBuilder(400, 16, 16);
+  margin-bottom: 8px;
+  margin-top: 0
+}
+
+.descriptionContainer {
+  @include flex(row, center, center, true);
+
+  label {
+    @include typographyBuilder(400, 12, 12);
+    @include flex(row, center);
+    text-align: left;
+    margin: 0 8px 8px 0;
+    opacity: .6;
+
+    &:first-child{
+      width: 100%;
+    }
+
+    span {
+      margin-right: 3px;
+    }
+  }
+}
+
+.button {
+  @include flex(row, center, space-between);
+
+  button {
+    @include fixedWidth(calc(50% - 4px));
+  }
+}
+
+.iconClock {
+  @include icon('clock', $colorTheme1, 14px, 14px)
+}
+
+.iconDate {
+  @include icon('date', $colorTheme1, 14px, 14px)
+}
+
+.iconPlace {
+  @include icon('place', $colorTheme1, 14px, 14px)
+}
