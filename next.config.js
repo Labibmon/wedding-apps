@@ -9,7 +9,7 @@
 module.exports = () => {
   const serverRuntimeConfig = {
     rowSelectedAPI: {
-      list: 'id, name, arrival, message'
+      list: 'id, name, arrival, message, time, pax'
     },
     guestUrlAPI: {
       list: 'guest'

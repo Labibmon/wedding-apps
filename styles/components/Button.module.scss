@@ -27,7 +27,8 @@ $buttons: (
 
   &_small
   {
-    padding: 12px !important;
+    @include typographyBuilder(400, 16, 12);
+    padding: calc(8px + .5vh) calc(8px + .5vw) !important;
   }
 
   @each $name, $background_color, $color, $border_color in $buttons
