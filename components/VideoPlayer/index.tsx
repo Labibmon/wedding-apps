@@ -1,6 +1,5 @@
 import {
   FC,
-  useState,
   useEffect,
   useRef
 } from 'react'
