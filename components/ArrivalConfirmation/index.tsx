@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import styles from 'styles/components/ArrivalConfirmation.module.scss'
 import stylesButton from 'styles/components/Button.module.scss'
+import Link from 'next/link'
 
 type ArrivalConfirmationPropType = {
   time: string
@@ -22,10 +23,12 @@ const ArrivalConfirmation: FC<ArrivalConfirmationPropType> = ({
       >
         <h3 className={styles.title}>Apakah anda akan hadir ke acara ?</h3>
         <div className={styles.descriptionContainer}>
-          <label>
-            <span className={styles.iconPlace} />
-            <span></span>Kabupaten Tuban (Gedung KSPKP)
-          </label>
+          <Link href="https://goo.gl/maps/ZSMSU2JFTygXNWAQ9">
+            <a>
+              <span className={styles.iconPlace} />
+              <span></span>Kabupaten Tuban (Gedung KSPKP)
+            </a>
+          </Link>
           <label>
             <span className={styles.iconClock} />{time} WIB
           </label>

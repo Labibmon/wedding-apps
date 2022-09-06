@@ -109,7 +109,7 @@
 .descriptionContainer {
   @include flex(row, center, center, true);
 
-  label {
+  > label, a {
     @include typographyBuilder(400, 12, 12);
     @include flex(row, center);
     text-align: left;
@@ -123,6 +123,10 @@
     span {
       margin-right: 3px;
     }
+  }
+
+  a {
+    text-decoration: underline;
   }
 }
 
