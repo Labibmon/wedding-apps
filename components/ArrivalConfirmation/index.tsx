@@ -23,12 +23,12 @@ const ArrivalConfirmation: FC<ArrivalConfirmationPropType> = ({
       >
         <h3 className={styles.title}>Apakah anda akan hadir ke acara ?</h3>
         <div className={styles.descriptionContainer}>
-          <Link href="https://goo.gl/maps/ZSMSU2JFTygXNWAQ9">
-            <a>
-              <span className={styles.iconPlace} />
-              <span></span>Kabupaten Tuban (Gedung KSPKP)
-            </a>
-          </Link>
+          <label>
+            <span className={styles.iconPlace} /> Gedung Wijaya Kusuma,
+            <Link href="https://goo.gl/maps/ZSMSU2JFTygXNWAQ9" >
+              <a target="_blank">KSPKP Tuban</a>
+            </Link>
+          </label>
           <label>
             <span className={styles.iconClock} />{time} WIB
           </label>
