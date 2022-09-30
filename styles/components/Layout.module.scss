@@ -1,4 +1,12 @@
+@import '../utils/variables';
+
 .main {
   max-width: 500px;
+  height: 100vh;
   margin: auto;
+}
+
+.bgWhite 
+{
+  background-color: $color_white;
 }

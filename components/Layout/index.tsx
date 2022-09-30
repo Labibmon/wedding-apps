@@ -1,12 +1,14 @@
 import Head from 'next/head'
 import { FC, ReactNode } from 'react'
-import styles from '../../styles/components/Layout.module.scss'
+import styles from 'styles/components/Layout.module.scss'
 
 type LayoutPropType = {
   children?: ReactNode
+  bgWhite?: boolean
 }
 
 const Layout: FC<LayoutPropType> = ({
+  bgWhite,
   children
 }) => {
 
@@ -39,7 +41,7 @@ const Layout: FC<LayoutPropType> = ({
           <meta property="og:url" content={url} key="ogurl" />
           <meta property="twitter:url" content={url} key="twitterurl" /> */}
       </Head>
-      <main className={styles.main}>
+      <main className={`${styles.main} ${bgWhite ? styles.bgWhite : ''}`}>
         {children}
       </main>
     </>
