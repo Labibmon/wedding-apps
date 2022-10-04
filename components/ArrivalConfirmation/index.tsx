@@ -12,7 +12,7 @@ const ArrivalConfirmation: FC<ArrivalConfirmationPropType> = ({
 }) => {
   const [arrival, setArrival] = useState<boolean>()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault()
   }
 

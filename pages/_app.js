@@ -3,6 +3,8 @@ import {
   QueryClientProvider,
 } from 'react-query'
 import '../styles/globals.css'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyApp = ({ 
   Component,
@@ -19,6 +21,7 @@ const MyApp = ({
   return ( 
     <QueryClientProvider client={queryClient}>
       <Component { ...pageProps} />
+      <ToastContainer />
     </QueryClientProvider>
   )
 }

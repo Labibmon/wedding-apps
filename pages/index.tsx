@@ -1,8 +1,8 @@
-import GetGuest from '../components/GetGuest'
 import Layout from 'components/Layout'
 import ArrivalConfirmation from 'components/ArrivalConfirmation'
 import useGuest from 'lib/getGuest'
 import VideoPlayer from 'components/VideoPlayer'
+
 
 const MyApp = ({
 }) => {
