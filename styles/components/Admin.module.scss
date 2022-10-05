@@ -7,43 +7,127 @@
   height: 100vh;
 }
 
-.listGuestContainer{
-  margin-top: calc(8px + .8vh);
-  padding: calc(5px + .5vh) calc(5px + .5vw);
-  border-top: 1px solid $colorTheme1;
-  max-height: 95%;
-  overflow: auto;
-}
-
-.listGuestItemHeader
-{
+.header {
   @include flex(row, center, space-between);
 }
 
-.listGuestItem{
+.tabHeader {}
+
+.statistikContainer {
+  @include flex(row, center, space-between, true);
+}
+
+.statistikContainerItems {
+  @include fixedWidth(calc((100% / 2) - 10px));
+  @include fixedHeight(200px);
+  @include flex(column, center, center);
+  color: $color_white;
+  border-radius: 4px;
+  margin-bottom: 20px;
+
+  &[class$="total"] {
+    background-color: $color_green;
+  }
+
+  &[class$="arrival"] {
+    background-color: $color_blue;
+  }
+
+  &[class$="noarrival"] {
+    background-color: $color_grey_dark;
+  }
+
+  &[class$="noconfirm"] {
+    background-color: $color_grey_light;
+  }
+
+  & > label:nth-child(1) {
+    @include typographyBuilder(400, 36, 36);
+    margin-bottom: 20px;
+  }
+}
+
+.tabBody {
+  padding: calc(5px + .5vh) 0;
+  margin-top: calc(8px + .8vh);
+}
+
+.listGuestHeader {
+  // @include flex(row, center, space-between);
+}
+
+.tabHeaderButton {
+  @include typographyBuilder(400, 12, 14);
+  width: 50%;
+  padding: calc(5px + .5vh) calc(5px + .5vw);
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid $color_black_text;
+  color: $color_black_text;
+
+  &[class$="active"] {
+    @include typographyBuilder(600, 12, 14);
+    color: $colorTheme1;
+    border: 1px solid $colorTheme1;
+    border-bottom: 0;
+  }
+}
+
+.listGuestHeaderInputContainer {
+  @include flex(row, center, space-between);
+  margin-top: calc(8px + .8vh);
+
+  &>input {
+    margin-bottom: 0;
+  }
+
+  &>input,
+  &>select {
+    width: calc((100% / 2) - 8px);
+  }
+}
+
+.listGuestContainer {
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.listGuestItemsContainer {
+  margin-top: calc(8px + .8vh);
+  padding: calc(5px + .5vh) calc(5px + .5vw);
+  height: 75vh;
+  overflow: auto;
+}
+
+.listGuestItemHeader {
+  @include flex(row, center, space-between);
+}
+
+.listGuestItem {
   border: 1px solid $colorTheme1;
   margin-top: calc(4px + .4vh);
   border-radius: 3px;
   padding: calc(5px + .5vh) calc(5px + .5vw);
 }
 
-.listGuestItemName{
+.listGuestItemName {
   @include typographyBuilder(600, 18, 16);
   margin: 0 0 calc(4px + .4vh);
 }
 
-.listGuestItemTime{
+.listGuestItemTime {
   @include flex(row, center, flex-start);
   @include typographyBuilder(400, 18, 16);
   margin: 0 0 calc(4px + .4vh);
 
-  & > span {
+  &>span {
     @include icon('clock', $colorTheme1, 14px, 14px);
     margin-right: 6px;
   }
 }
 
-.listGuestItemLink{
+.listGuestItemLink {
   @include typographyBuilder(400, 18, 16);
   @include flex(row, center, space-between);
   background: $color_light_dark;
@@ -51,7 +135,7 @@
   border-radius: 4px;
 }
 
-.listGuestItemLinkIcon{
+.listGuestItemLinkIcon {
   @include fixedWidth(13.33px);
   @include fixedHeight(16.67px);
   display: inline-block;
@@ -95,8 +179,7 @@
   }
 }
 
-.formAddLinkBackground
-{
+.formAddLinkBackground {
   opacity: .5;
   background-color: $color_black;
   height: 100vh;
@@ -108,8 +191,7 @@
   width: 100vh;
 }
 
-.formAddLinkBody
-{
+.formAddLinkBody {
   max-width: 500px;
   width: 100vw;
   border-radius: 15px 15px 0 0;
@@ -135,6 +217,20 @@
   text-align: left;
   -moz-appearance: textfield !important;
   margin-bottom: calc(8px + .8vh);
+
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+  }
+}
+
+.formAddLinkInputFilter {
+  @extend .form_input;
+  @include typographyBuilder(400, 14, 12);
+  width: 100%;
+  text-align: left;
+  -moz-appearance: textfield !important;
+  margin: 0;
 
   &::-webkit-inner-spin-button {
     -webkit-appearance: none !important;

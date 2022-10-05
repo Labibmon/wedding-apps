@@ -1,22 +1,14 @@
 import { useState } from "react"
 import FormAddLink from "components/FormAddLink"
 import Layout from "components/Layout"
-import useGuest from "lib/getGuest"
-import { toast } from 'react-toastify';
+import ListGuest from "components/ListGuest"
 import styles from 'styles/components/Admin.module.scss'
+import stylesButton from 'styles/components/Button.module.scss'
 
 const MyApp = ({
 }) => {
-  const { data, isLoading } = useGuest()
   const [popUpcreateLinkForm, setPopUpCreateLinkForm] = useState<boolean>(false)
-  const hostname = typeof window !== 'undefined' && window.location.hostname;
-
-  const handleCopy = (text: string) => {
-    navigator?.clipboard?.writeText(text)
-    toast.success("Link berhasil di copy");
-  }
-
-  if (isLoading) <>Loading</>
+  const [tabMenu, setTabMenu] = useState<"STATISTIK" | "LIST">("STATISTIK")
 
   return (
     <Layout
@@ -25,30 +17,60 @@ const MyApp = ({
       <div
         className={styles.container}
       >
-        <button
-          type="button"
-          onClick={() => setPopUpCreateLinkForm(true)}
-        >buat link undangan</button>
 
-        <div className={styles.listGuestContainer}>
-          {!isLoading ? data?.map((dataGuest: any, index: number) => (
+        <div className={styles.tabHeader}>
+          <button
+            className={`
+              ${styles.tabHeaderButton} 
+              ${tabMenu === "STATISTIK" ? 'active' : ''
+              }`}
+            onClick={() => setTabMenu("STATISTIK")}
+          >Statistik</button>
+          <button
+            className={`
+              ${styles.tabHeaderButton} 
+              ${tabMenu === "LIST" ? 'active' : ''
+              }`}
+            onClick={() => setTabMenu("LIST")}
+          >List Undangan</button>
+        </div>
+
+        <div className={styles.tabBody}>
+          {tabMenu === "STATISTIK" ?
             <div
-              key={index}
-              className={styles.listGuestItem}
+              className={styles.statistikContainer}
             >
-              <div className={styles.listGuestItemHeader}>
-                <label className={styles.listGuestItemName}>{dataGuest?.name}</label>
-                <label className={styles.listGuestItemTime}><span className={styles.iconDate} /> {dataGuest?.time} WIB</label>
+              <div
+                className={`${styles.statistikContainerItems} total`}
+              >
+                <label>0</label>
+                <label>Total Undangan</label>
               </div>
-              <div className={styles.listGuestItemLink}>
-                <label>{hostname}/{dataGuest?.id}</label>
-                <span
-                  onClick={() => handleCopy(`${hostname}/${dataGuest.id}`)}
-                  className={styles.listGuestItemLinkIcon}
-                />
+              <div
+                className={`${styles.statistikContainerItems} arrival`}
+              >
+                <label>0</label>
+                <label>Total Kehadiran</label>
+              </div>
+              <div
+                className={`${styles.statistikContainerItems} noarrival`}
+              >
+                <label>0</label>
+                <label>Total Tidak Hadir</label>
+              </div>
+              <div
+                className={`${styles.statistikContainerItems} noconfirm`}
+              >
+                <label>0</label>
+                <label>Total Belum Konfirmasi</label>
               </div>
             </div>
-          )) : "loading"}
+            :
+            <ListGuest
+              setPopUpCreateLinkForm={setPopUpCreateLinkForm}
+            />
+          }
+
         </div>
 
         <FormAddLink
