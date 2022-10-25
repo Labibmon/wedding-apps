@@ -180,15 +180,15 @@
 }
 
 .listGuestContainer {
-  max-height: 90vh;
-  overflow: hidden;
+  // max-height: 90vh;
+  // overflow: hidden;
 }
 
 .listGuestItemsContainer {
   margin-top: calc(8px + .8vh);
   padding: calc(5px + .5vh) calc(5px + .5vw);
-  height: 75vh;
-  overflow: auto;
+  // height: 75vh;
+  // overflow: auto;
 }
 
 .listGuestItemHeader {
