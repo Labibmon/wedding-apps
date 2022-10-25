@@ -5,10 +5,12 @@ import styles from 'styles/components/Layout.module.scss'
 type LayoutPropType = {
   children?: ReactNode
   bgWhite?: boolean
+  isAdmin?: boolean
 }
 
 const Layout: FC<LayoutPropType> = ({
   bgWhite,
+  isAdmin,
   children
 }) => {
 
@@ -41,7 +43,12 @@ const Layout: FC<LayoutPropType> = ({
           <meta property="og:url" content={url} key="ogurl" />
           <meta property="twitter:url" content={url} key="twitterurl" /> */}
       </Head>
-      <main className={`${styles.main} ${bgWhite ? styles.bgWhite : ''}`}>
+      <main 
+        className={`
+          ${styles.main} 
+          ${bgWhite ? styles.bgWhite : ''}
+          ${isAdmin ? styles.admin : ''}
+        `}>
         {children}
       </main>
     </>

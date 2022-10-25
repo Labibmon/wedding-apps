@@ -1,76 +1,77 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import FormAddLink from "components/FormAddLink"
 import Layout from "components/Layout"
 import ListGuest from "components/ListGuest"
 import styles from 'styles/components/Admin.module.scss'
 import stylesButton from 'styles/components/Button.module.scss'
+import StatisticChartGuest from "components/StatisticChartGuest"
+import useGuest from "lib/getGuest"
 
 const MyApp = ({
 }) => {
+  const { data: dataGuest, isLoading } = useGuest()
   const [popUpcreateLinkForm, setPopUpCreateLinkForm] = useState<boolean>(false)
-  const [tabMenu, setTabMenu] = useState<"STATISTIK" | "LIST">("STATISTIK")
+  const [statisticData, setStatisticData] = useState([])
+
+  const handleDataStatistic = () => {
+    const Datang = dataGuest.filter((data: any) => data.arrival === true).length
+    const TidakDatang = dataGuest.filter((data: any) => data.arrival === false).length
+    const BelumKonfirmasi = dataGuest.filter((data: any) => data.arrival === null).length
+console.log(dataGuest);
+
+    setStatisticData([
+      { name: 'Datang', value: Datang },
+      { name: 'Tidak Datang', value: TidakDatang },
+      { name: 'Belum Konfirmasi', value: BelumKonfirmasi },
+    ])
+
+    console.log(statisticData);
+    
+  }
+
+  useEffect(() => {
+    dataGuest && handleDataStatistic()
+  }, [dataGuest])
+
 
   return (
     <Layout
       bgWhite
+      isAdmin
     >
       <div
         className={styles.container}
       >
-
-        <div className={styles.tabHeader}>
-          <button
-            className={`
-              ${styles.tabHeaderButton} 
-              ${tabMenu === "STATISTIK" ? 'active' : ''
-              }`}
-            onClick={() => setTabMenu("STATISTIK")}
-          >Statistik</button>
-          <button
-            className={`
-              ${styles.tabHeaderButton} 
-              ${tabMenu === "LIST" ? 'active' : ''
-              }`}
-            onClick={() => setTabMenu("LIST")}
-          >List Undangan</button>
-        </div>
-
-        <div className={styles.tabBody}>
-          {tabMenu === "STATISTIK" ?
+        <div className={styles.header}>
+          <div
+            className={styles.statistikContainer}
+          >
             <div
-              className={styles.statistikContainer}
+              className={styles.statistikHeader}
             >
-              <div
-                className={`${styles.statistikContainerItems} total`}
-              >
-                <label>0</label>
-                <label>Total Undangan</label>
-              </div>
-              <div
-                className={`${styles.statistikContainerItems} arrival`}
-              >
-                <label>0</label>
-                <label>Total Kehadiran</label>
-              </div>
-              <div
-                className={`${styles.statistikContainerItems} noarrival`}
-              >
-                <label>0</label>
-                <label>Total Tidak Hadir</label>
-              </div>
-              <div
-                className={`${styles.statistikContainerItems} noconfirm`}
-              >
-                <label>0</label>
-                <label>Total Belum Konfirmasi</label>
-              </div>
+              {/* <span>icon</span> */}
+              <h3>Statistik Tamu</h3>
             </div>
-            :
-            <ListGuest
-              setPopUpCreateLinkForm={setPopUpCreateLinkForm}
-            />
-          }
+            <StatisticChartGuest data={statisticData} />
+          </div>
+          <div
+            className={styles.detailWedding}
+          >
+            <div
+              className={styles.detailHeader}
+            >
+              {/* <span>icon</span> */}
+              <h3>Detail Acara</h3>
+            </div>
 
+          </div>
+        </div>
+        <div className={styles.tabBody}>
+          <ListGuest
+            data={dataGuest}
+            isLoading={isLoading}
+            setPopUpCreateLinkForm={setPopUpCreateLinkForm}
+          />
         </div>
 
         <FormAddLink

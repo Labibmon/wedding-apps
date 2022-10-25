@@ -5,47 +5,138 @@
   padding: calc(10px + 1vh) calc(8px + 0.8vw);
   position: relative;
   height: 100vh;
+  max-width: 1024px;
+  margin: auto;
 }
 
 .header {
-  @include flex(row, center, space-between);
+  @include flex(row, flex-start, space-between, true);
+  margin-bottom: calc(8px + .8vh);
+
+
+  @media screen and (max-width: $breakpoint_max_md) {
+    display: block;
+  }
 }
 
 .tabHeader {}
 
+.detailWedding {
+  border: 1px solid $color_light_border;
+  border-radius: 3px;
+  padding: calc(8px + .8vh) calc(8px + .8vw);
+  width: calc((100% / 2) - (8px + .8vw));
+
+  @media screen and (max-width: $breakpoint_max_md) {
+    width: 100%;
+    margin-top: calc(8px + .8vw);
+  }
+}
+
 .statistikContainer {
-  @include flex(row, center, space-between, true);
-}
+  border: 1px solid $color_light_border;
+  border-radius: 3px;
+  padding: calc(8px + .8vh) calc(8px + .8vw);
+  width: calc((100% / 2) - (8px + .8vw));
 
-.statistikContainerItems {
-  @include fixedWidth(calc((100% / 2) - 10px));
-  @include fixedHeight(200px);
-  @include flex(column, center, center);
-  color: $color_white;
-  border-radius: 4px;
-  margin-bottom: 20px;
-
-  &[class$="total"] {
-    background-color: $color_green;
-  }
-
-  &[class$="arrival"] {
-    background-color: $color_blue;
-  }
-
-  &[class$="noarrival"] {
-    background-color: $color_grey_dark;
-  }
-
-  &[class$="noconfirm"] {
-    background-color: $color_grey_light;
-  }
-
-  & > label:nth-child(1) {
-    @include typographyBuilder(400, 36, 36);
-    margin-bottom: 20px;
+  @media screen and (max-width: $breakpoint_max_md) {
+    width: 100%;
   }
 }
+
+.statistikChartContainer {
+  @include flex(row, center, flex-start);
+  @include fixedWidth(100%);
+
+  @media screen and (max-width: $breakpoint_max_md) {
+    display: block;
+  }
+}
+
+.statistikChart {
+  @include fixedWidth(50%);
+  @include fixedHeight(250px);
+
+  @media screen and (max-width: $breakpoint_max_md) {
+    @include fixedWidth(100%);
+  }
+}
+
+.statistikChartDesc {
+  @include fixedWidth(50%);
+
+  @media screen and (max-width: $breakpoint_max_md) {
+    @include fixedWidth(100%);
+  }
+
+  h3 {
+    @include flex(row, center, flex-start);
+    @include typographyBuilder(600, 16, 16);
+    margin-bottom: calc(8px + .8vh);
+    padding-bottom: calc(6px + .6vh);
+    margin-top: 0;
+    border-bottom: 1px solid $color_light_border;
+
+    & > span:first-child{
+      @include fixedSize(16px);
+      margin-right: 8px;
+    }
+
+    & > span:last-child{
+      display: inline-block;
+      margin-left: auto;
+    }
+  }
+}
+
+.statistikHeader,
+.detailHeader {
+  @include flex(row, flex-start, flex-start);
+  @include typographyBuilder(600, 16, 16);
+  padding-bottom: calc(6px + .6vh);
+  margin-bottom: calc(6px + .6vh);
+  border-bottom: 1px solid $color_light_border;
+
+  span,
+  h3 {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  span {
+    margin-right: calc(8px + .8vw);
+  }
+}
+
+// .statistikContainerItems {
+//   @include fixedWidth(calc((100% / 2) - 10px));
+//   @include fixedHeight(200px);
+//   @include flex(column, center, center);
+//   color: $color_white;
+//   border-radius: 4px;
+//   margin-bottom: 20px;
+
+//   &[class$="total"] {
+//     background-color: $color_green;
+//   }
+
+//   &[class$="arrival"] {
+//     background-color: $color_blue;
+//   }
+
+//   &[class$="noarrival"] {
+//     background-color: $color_grey_dark;
+//   }
+
+//   &[class$="noconfirm"] {
+//     background-color: $color_grey_light;
+//   }
+
+//   & > label:nth-child(1) {
+//     @include typographyBuilder(400, 36, 36);
+//     margin-bottom: 20px;
+//   }
+// }
 
 .tabBody {
   padding: calc(5px + .5vh) 0;

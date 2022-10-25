@@ -1,0 +1,5 @@
+export enum ARRIVALCOLORS {
+    DATANG = '#0088FE',
+    TIDAKDATANG = '#00C49F',
+    BELUMKONFIRMASI = '#FFBB28'
+}

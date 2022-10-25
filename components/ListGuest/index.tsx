@@ -1,17 +1,20 @@
 import { FC } from 'react'
-import useGuest from 'lib/getGuest'
 import { toast } from 'react-toastify'
 import styles from 'styles/components/Admin.module.scss'
 import stylesButton from 'styles/components/Button.module.scss'
+import { AdminDataPropsType } from 'helpers/types/admin-data'
 
 type ListGuestPropsType = {
+  data: AdminDataPropsType[]
+  isLoading: boolean
   setPopUpCreateLinkForm: (open: boolean) => void
 }
 
 const ListGuest: FC<ListGuestPropsType> = ({
-  setPopUpCreateLinkForm
+  data,
+  setPopUpCreateLinkForm,
+  isLoading,
 }) => {
-  const { data, isLoading } = useGuest()
   const hostname = typeof window !== 'undefined' && window.location.hostname;
 
   const handleCopy = (text: string) => {
