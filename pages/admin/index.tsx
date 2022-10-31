@@ -1,38 +1,23 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import FormAddLink from "components/FormAddLink"
 import Layout from "components/Layout"
 import ListGuest from "components/ListGuest"
 import styles from 'styles/components/Admin.module.scss'
-import stylesButton from 'styles/components/Button.module.scss'
 import StatisticChartGuest from "components/StatisticChartGuest"
 import useGuest from "lib/getGuest"
+import useStatisticGuest from "lib/getStatisticGuest"
 
 const MyApp = ({
 }) => {
-  const { data: dataGuest, isLoading } = useGuest()
+  const {
+    data: dataGuest,
+    isLoading
+  } = useGuest()
+  const {
+    data: dataStatistic,
+    isLoading: isLoadingStatistic
+  } = useStatisticGuest()
   const [popUpcreateLinkForm, setPopUpCreateLinkForm] = useState<boolean>(false)
-  const [statisticData, setStatisticData] = useState([])
-
-  const handleDataStatistic = () => {
-    const Datang = dataGuest.filter((data: any) => data.arrival === true).length
-    const TidakDatang = dataGuest.filter((data: any) => data.arrival === false).length
-    const BelumKonfirmasi = dataGuest.filter((data: any) => data.arrival === null).length
-console.log(dataGuest);
-
-    setStatisticData([
-      { name: 'Datang', value: Datang },
-      { name: 'Tidak Datang', value: TidakDatang },
-      { name: 'Belum Konfirmasi', value: BelumKonfirmasi },
-    ])
-
-    console.log(statisticData);
-    
-  }
-
-  useEffect(() => {
-    dataGuest && handleDataStatistic()
-  }, [dataGuest])
-
 
   return (
     <Layout
@@ -52,7 +37,10 @@ console.log(dataGuest);
               {/* <span>icon</span> */}
               <h3>Statistik Tamu</h3>
             </div>
-            <StatisticChartGuest data={statisticData} />
+            {isLoadingStatistic ? 'loading'
+              :
+              <StatisticChartGuest data={dataStatistic} />
+            }
           </div>
           <div
             className={styles.detailWedding}

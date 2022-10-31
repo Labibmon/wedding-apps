@@ -15,12 +15,27 @@ const handler: ServerAPIHandlerTypes = async (
     // hit RestAPI
     const { data, count } = await supabase
       .from(guestUrlAPI.list)
-      .select(rowSelectedAPI.list, { count: 'exact' })
-      .order('name', { ascending: true })
-      .range(0, 1);
+      .select(rowSelectedAPI.list, { count: "exact" });
+
+    const Datang = data?.filter(
+      (data: any) => data.arrival === true
+    )?.length;
+    const TidakDatang = data?.filter(
+      (data: any) => data.arrival === false
+    )?.length;
+    const BelumKonfirmasi = data?.filter(
+      (data: any) => data.arrival === null
+    )?.length;
+
+    const returnData = {
+      datang: Datang || 0,
+      tidakDatang: TidakDatang || 0,
+      belumKonfirmasi: BelumKonfirmasi || 0,
+      totalItems: count
+    };
 
     // return success
-    res.status(HttpStatus.OK).json({data, totalItems: count});
+    res.status(HttpStatus.OK).json(returnData);
   } catch (error) {
     res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
       code: HttpStatus.INTERNAL_SERVER_ERROR,

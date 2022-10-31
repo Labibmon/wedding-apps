@@ -5,7 +5,7 @@ import stylesButton from 'styles/components/Button.module.scss'
 import { AdminDataPropsType } from 'helpers/types/admin-data'
 
 type ListGuestPropsType = {
-  data: AdminDataPropsType[]
+  data: AdminDataPropsType
   isLoading: boolean
   setPopUpCreateLinkForm: (open: boolean) => void
 }
@@ -53,7 +53,7 @@ const ListGuest: FC<ListGuestPropsType> = ({
         </div>
       </div>
       <div className={styles.listGuestItemsContainer}>
-        {data?.map((dataGuest: any, index: number) => (
+        {data?.data?.map((dataGuest: any, index: number) => (
           <div
             key={index}
             className={styles.listGuestItem}
@@ -72,6 +72,14 @@ const ListGuest: FC<ListGuestPropsType> = ({
           </div>
         ))}
       </div>
+
+      {/* paggination
+      <div>
+        <label>Total Items: 10</label>
+        <ul>
+          <li></li>
+        </ul>
+      </div> */}
     </div>
   )
 }

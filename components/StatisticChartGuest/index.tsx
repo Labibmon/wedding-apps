@@ -1,17 +1,23 @@
 import { ARRIVALCOLORS } from 'helpers/enums/colors';
-import { AdminDataPropsType } from 'helpers/types/admin-data';
+import { StatisticGuestPropsType } from 'helpers/types/admin-data';
 import { FC } from 'react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts"
 import styles from 'styles/components/Admin.module.scss'
 
 type StatisticChartGuestTypes = {
-  data: AdminDataPropsType[]
+  data: StatisticGuestPropsType
 }
 
 const StatisticChartGuest: FC<StatisticChartGuestTypes> = ({
   data
 }) => {
   const RADIAN = Math.PI / 180;
+
+  const dataPrint = [
+    { name: 'Datang', value: data?.datang },
+    { name: 'Tidak Datang', value: data?.tidakDatang },
+    { name: 'Belum Konfirmasi', value: data?.belumKonfirmasi },
+  ]
 
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
@@ -31,7 +37,7 @@ const StatisticChartGuest: FC<StatisticChartGuestTypes> = ({
         <ResponsiveContainer width="100%" height="100%">
           <PieChart width={400} height={400}>
             <Pie
-              data={data}
+              data={dataPrint}
               cx="50%"
               cy="50%"
               labelLine={false}
@@ -40,18 +46,21 @@ const StatisticChartGuest: FC<StatisticChartGuestTypes> = ({
               fill="#8884d8"
               dataKey="value"
             >
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={ARRIVALCOLORS[entry?.name?.replace(/\s/g, '')?.toUpperCase()]}
-                />
-              ))}
+              <Cell
+                fill={ARRIVALCOLORS.DATANG}
+              />
+              <Cell
+                fill={ARRIVALCOLORS.TIDAKDATANG}
+              />
+              <Cell
+                fill={ARRIVALCOLORS.BELUMKONFIRMASI}
+              />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
       </div>
       <div className={styles.statistikChartDesc}>
-        {data.map(
+        {dataPrint.map(
           (_: any, key: number) => (
             <h3 key={key}>
               <span style={{
