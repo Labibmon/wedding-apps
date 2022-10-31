@@ -10,14 +10,25 @@ const handler: ServerAPIHandlerTypes = async (
 ) => {
   // get api url from next.config
   const { guestUrlAPI, rowSelectedAPI } = serverRuntimeConfig;
+  const {
+    query: { 
+      totalDisplayItems, 
+      name, 
+      time 
+    }
+  } = req;
 
+  console.log(name, time);
+  
   try {
     // hit RestAPI
     const { data, count } = await supabase
       .from(guestUrlAPI.list)
       .select(rowSelectedAPI.list, { count: 'exact' })
       .order('name', { ascending: true })
-      .range(0, 1);
+      .range(0, parseInt(totalDisplayItems.toString()))
+      .ilike('name', name ? `%${name}%` : `%%`)
+      .ilike('time', time ? `%${time}%` : '%%');
 
     // return success
     res.status(HttpStatus.OK).json({data, totalItems: count});

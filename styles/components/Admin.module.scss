@@ -12,10 +12,11 @@
 .header {
   @include flex(row, flex-start, space-between, true);
   margin-bottom: calc(8px + .8vh);
-
+  height: 350px;
 
   @media screen and (max-width: $breakpoint_max_md) {
     display: block;
+    height: fit-content;
   }
 }
 
@@ -26,11 +27,27 @@
   border-radius: 3px;
   padding: calc(8px + .8vh) calc(8px + .8vw);
   width: calc((100% / 2) - (8px + .8vw));
+  height: 100%;
 
   @media screen and (max-width: $breakpoint_max_md) {
     width: 100%;
     margin-top: calc(8px + .8vw);
+    height: fit-content;
   }
+}
+
+.detailEventContainer {}
+
+.detailEventItems {}
+
+.detailEventItemsLabel {
+  @include typographyBuilder(600, 16, 16);
+  margin: 14px 0 8px 0;
+}
+
+.detailEventItemsValue {
+  @include typographyBuilder(400, 16, 16);
+  margin: 0;
 }
 
 .statistikContainer {
@@ -38,9 +55,11 @@
   border-radius: 3px;
   padding: calc(8px + .8vh) calc(8px + .8vw);
   width: calc((100% / 2) - (8px + .8vw));
+  height: 100%;
 
   @media screen and (max-width: $breakpoint_max_md) {
     width: 100%;
+    height: fit-content;
   }
 }
 
@@ -77,12 +96,12 @@
     margin-top: 0;
     border-bottom: 1px solid $color_light_border;
 
-    & > span:first-child{
+    &>span:first-child {
       @include fixedSize(16px);
       margin-right: 8px;
     }
 
-    & > span:last-child{
+    &>span:last-child {
       display: inline-block;
       margin-left: auto;
     }
@@ -242,7 +261,6 @@
   bottom: 0;
   left: 0;
   max-width: 500px;
-  width: 100vw;
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
@@ -264,9 +282,9 @@
   }
 
   @media screen and (min-width: $breakpoint_min_md) {
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -250px;
+    @include fixedWidth(100vw);
+    @include flex(column, center, center);
+    left: 0;
   }
 }
 
@@ -280,6 +298,7 @@
   z-index: 0;
   height: 100vh;
   width: 100vh;
+  min-width: 100vw;
 }
 
 .formAddLinkBody {
@@ -292,6 +311,10 @@
   background-color: $color_white;
   z-index: 1;
   padding: calc(10px + 1vh) calc(8px + 0.8vw);
+
+  @media screen and (min-width: $breakpoint_min_md) {
+    border-radius: 15px;
+  }
 }
 
 .formAddLinkLabel {
@@ -346,4 +369,9 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.buttonShowAllContainer {
+  @include flex(row, center, center);
+  margin-top: 20px;
 }

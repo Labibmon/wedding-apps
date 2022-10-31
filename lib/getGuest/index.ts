@@ -1,10 +1,15 @@
 import { useQuery } from "react-query";
 import { baseApi } from "utils/serviceAPI";
 
-export default function useGuest() {
+type QueryTypes = {
+  totalDisplayItems: number
+  time?: string
+  name?: string
+};
+
+export default function useGuest(param: QueryTypes) {
   return useQuery("guest", () =>
-    fetch(`${baseApi}/guest`).then(
-      (res) => res.json()
-    )
+    fetch(`${baseApi}/guest?totalDisplayItems=${param.totalDisplayItems}${param.name ? '&name=' + param.name : ''}${param.time ? '&time=' + param.time : ''}`)
+    .then((res) => res.json())
   );
 }

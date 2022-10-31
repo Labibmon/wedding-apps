@@ -7,11 +7,13 @@ import stylesButton from 'styles/components/Button.module.scss'
 type FormAddLinkTypes = {
   open: boolean
   onClose: (open: boolean) => void
+  refetch: () => void
 }
 
 const FormAddLink: FC<FormAddLinkTypes> = ({
   open,
   onClose,
+  refetch,
 }) => {
   const [inputData, setInputData] = useState({
     name: "",
@@ -34,6 +36,7 @@ const FormAddLink: FC<FormAddLinkTypes> = ({
       {
         onSuccess: () => {
           toast.success("Data berhasil di simpan");
+          refetch();
         },
         onError: (err: any) => {
           toast.error('Error', err);
@@ -83,8 +86,7 @@ const FormAddLink: FC<FormAddLinkTypes> = ({
             required
           >
             <option disabled selected> -- select an option -- </option>
-            <option value="11:00 - 12:00">11:00 - 12:00</option>
-            <option value="12:00 - 13:00">12:00 - 13:00</option>
+            <option value="11:00 - 13:00">11:00 - 12:00</option>
             <option value="13:00 - 14:00">13:00 - 14:00</option>
           </select>
           <button
