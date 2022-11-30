@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
+import Link from 'next/link'
 import styles from 'styles/components/ArrivalConfirmation.module.scss'
 import stylesButton from 'styles/components/Button.module.scss'
-import Link from 'next/link'
 
 type ArrivalConfirmationPropType = {
   time: string

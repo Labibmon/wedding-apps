@@ -7,6 +7,7 @@
 // module.exports = nextConfig
 
 module.exports = () => {
+
   const serverRuntimeConfig = {
     rowSelectedAPI: {
       list: 'id, name, arrival, message, time, pax'
@@ -25,4 +26,18 @@ module.exports = () => {
     serverRuntimeConfig,
     publicRuntimeConfig
   }
+}
+
+module.exports = {
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'assets.vercel.com',
+        port: '',
+        pathname: '/image/upload/**',
+      },
+    ],
+  },
 }

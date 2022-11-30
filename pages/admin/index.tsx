@@ -31,8 +31,8 @@ const MyApp = ({
 
   const [popUpcreateLinkForm, setPopUpCreateLinkForm] = useState<boolean>(false)
 
-  const handleSearch = async (type: string, value: string) => {
-    await setParams({
+  const handleSearch = (type: string, value: string) => {
+    setParams({
       ...params,
       [type]: value
     })

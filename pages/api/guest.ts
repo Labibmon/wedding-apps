@@ -18,8 +18,6 @@ const handler: ServerAPIHandlerTypes = async (
     }
   } = req;
 
-  console.log(name, time);
-  
   try {
     // hit RestAPI
     const { data, count } = await supabase
