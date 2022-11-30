@@ -1,9 +1,9 @@
 const withPWA = require('next-pwa')({
-  dest: 'public'
+  dest: 'public',
+  disable: process.env.NODE_ENV === "development",
 })
 
 module.exports = withPWA({
-
   serverRuntimeConfig: {
     rowSelectedAPI: {
       list: 'id, name, arrival, message, time, pax'
@@ -21,9 +21,4 @@ module.exports = withPWA({
   headers: {
     "X-Frame-Options": "sameorigin",
   },
-
-  // return {
-  //   serverRuntimeConfig,
-  //   publicRuntimeConfig
-  // }
 });
