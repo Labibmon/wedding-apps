@@ -8,10 +8,10 @@ import { useState } from 'react'
 
 const MyApp = ({
 }) => {
-  const { data, isLoading } = useGuest()
+  // const { data, isLoading } = useGuest()
   const [openInvitation, setOpenInvitation] = useState<boolean>(true)
 
-  if (isLoading) <>Loading</>
+  // if (isLoading) <>Loading</>
 
   return (
     <Layout>
