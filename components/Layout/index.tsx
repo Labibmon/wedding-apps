@@ -28,7 +28,7 @@ const Layout: FC<LayoutPropType> = ({
         <meta name="robots" content="index, follow" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#cec1ca" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#cec1ca" />
-
+        <meta name="theme-color" content="#673AB6" />
         {/* <meta property="og:title" content={title} key="ogtitle" />
           <meta property="twitter:title" content={title} key="twittertitle" />
 
