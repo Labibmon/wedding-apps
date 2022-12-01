@@ -16,7 +16,7 @@ const MyApp = ({
   return (
     <Layout>
       <OpenInvitation
-        withButton={false}
+        withButton
         open={openInvitation}
         onClose={() => setOpenInvitation(false)}
         name="Labib"

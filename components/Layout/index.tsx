@@ -19,12 +19,11 @@ const Layout: FC<LayoutPropType> = ({
       <Head>
         <title>The Wedding of Anggi &amp; Labib</title>
         {/* Link Tag */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon-192x192.png"  />
         <link rel="canonical" href="" />
 
         {/* Meta Tag */}
         <meta name="description" content="Wedding Event" />
-        <meta name="robots" content="noindex, nofollow"></meta>
         <meta name="robots" content="index, follow" />
         {/* <meta property="og:title" content={title} key="ogtitle" />
           <meta property="twitter:title" content={title} key="twittertitle" />

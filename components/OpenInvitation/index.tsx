@@ -6,21 +6,19 @@ type OpenInvitationTypes = {
   name: string
   open: boolean
   onClose: (open: boolean) => void
+  withButton: boolean
 }
 
 const OpenInvitation: FC<OpenInvitationTypes> = ({
   open,
   name,
   onClose,
+  withButton
 }) => {
   return (
     <div
       className={`${styles.container} ${open ? 'open' : 'close'}`}
     >
-      {/* <div
-        className={styles.formAddLinkBackground}
-        onClick={() => onClose(false)}
-      /> */}
       <div className={styles.backgroundContainer}>
         <div className={styles.background}>
           <img
@@ -47,17 +45,19 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
             <h3>Anggi &amp; Labib</h3>
           </div>
         </div>
-        <div className={styles.content}>
-          <div className={styles.text}>
-            <p>Kepada Bpk/Ibu/Saudara/i</p>
-            <h3>{name}</h3>
-            <p>Tanpa mengurangi rasa hormat, kami mengundang anda untuk hadir di acara pernikahan kami.</p>
+        {withButton &&
+          <div className={styles.content}>
+            <div className={styles.text}>
+              <p>Kepada Bpk/Ibu/Saudara/i</p>
+              <h3>{name}</h3>
+              <p>Tanpa mengurangi rasa hormat, kami mengundang anda untuk hadir di acara pernikahan kami.</p>
+            </div>
+            <button
+              className={stylesButton.btn_primaryLong}
+              onClick={() => onClose(false)}
+            >BUKA UNDANGAN</button>
           </div>
-          <button
-            className={stylesButton.btn_primaryLong}
-            onClick={() => onClose(false)}
-          >BUKA UNDANGAN</button>
-        </div>
+        }
       </div>
     </div>
   )
