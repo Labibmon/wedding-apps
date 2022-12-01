@@ -1,5 +1,14 @@
 @import '../utils/variables';
 
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
 .container{
     @include fixedHeight(100vh);
     @include fixedWidth(100vw);
@@ -19,3 +28,34 @@
     background-color: transparent;
     overflow: auto;
 }
+
+.audio{
+    @include fixedSize(60px);
+    @include flex(row, center, center);
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    background-color: $colorTheme1;
+    outline: 0;
+    border: 0;
+    color: $color_white;
+
+   
+}
+
+.audioIcon {
+    &[class$='play']{
+        @include icon('play', $color_white, 15px, 15px)
+    }
+
+    &[class$='pause']{
+        @include icon('pause', $color_white, 15px, 15px);
+        animation-name: spin;
+        animation-duration: 5000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}
+

@@ -14,6 +14,14 @@
   &_back {
     background-image: url("data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 12H5' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 19L5 12L12 5' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
   }
+
+  &_play{
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='_17_play' data-name='17 play'%3E%3Cpath d='m28 16a1 1 0 0 1 -.491.861l-22 13a1 1 0 0 1 -1.509-.861v-26a1 1 0 0 1 1.509-.861l22 13a1 1 0 0 1 .491.861z' fill='%23000000' style='fill: rgb(255, 255, 255);'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  &_pause{
+    background-image: url("data:image/svg+xml,%3Csvg id='Capa_1' enable-background='new 0 0 424.236 424.236' viewBox='0 0 424.236 424.236' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath id='path-1_5_' d='m247.471 0h176.765v424.236h-176.765z' transform='translate(9 2)' fill='%23000000' style='fill: rgb(255, 255, 255);'%3E%3C/path%3E%3Cpath id='path-1_4_' d='m0 0h176.765v424.236h-176.765z' transform='translate(2 2)' fill='%23000000' style='fill: rgb(255, 255, 255);'%3E%3C/path%3E%3C/svg%3E");
+  }
 }
 
 @mixin icon($name, $color, $width, $height) {
