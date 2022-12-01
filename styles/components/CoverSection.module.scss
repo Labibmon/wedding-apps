@@ -1,0 +1,52 @@
+@import '../utils/variables';
+
+.container {
+    @include fixedHeight(100vh);
+    position: relative;
+    // padding: calc(10px + 1.5vh) calc(8px + .8vw);
+}
+.overlay{
+    @include fixedHeight(100vh);
+    @include fixedWidth(100vw);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(57, 7, 36, 0.8), transparent 70%, rgb(231 224 228));
+}
+
+.content{
+    @include fixedHeight(100vh);
+    @include fixedWidth(100vw);
+    position: absolute;
+    top: 0;
+    z-index: 2;  
+    padding: calc(10px + 1.5vh) calc(10px + 1.5vw);
+    color: $color_white;
+}
+
+.name{
+    @include typographyBuilder(600, 42, 42, false);
+    color: $color_white;
+    margin-top: calc(24px + 2.4vh);
+}
+
+.desc {
+    @include typographyBuilder(400, 14, 20);
+    color: $color_white;
+    margin-top: calc(30px + 3vh);
+}
+
+.date {
+    @include typographyBuilder(400, 16, 20);
+    color: $color_white;
+    margin-top: calc(10px + 1vh);
+}
+
+.photo{
+    @include fixedHeight(100vh);
+    @include fixedWidth(100vw);
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    object-fit: cover;
+}

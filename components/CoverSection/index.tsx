@@ -14,7 +14,7 @@ const CoverSection: FC = () => {
       <div className={styles.content}> 
         <h3 className={styles.name}>Anggi &amp; Labib</h3>
         <p className={styles.desc}><i>The best and most beautiful things in this world cannot be seen or even heard, but must be felt with the heart.</i></p>
-        <p className={styles.date}>11 . 12 . 22</p>
+        <p className={styles.date}>11&nbsp;&nbsp;.&nbsp;&nbsp;12&nbsp;&nbsp;.&nbsp;&nbsp;22</p>
       </div>
     </div>
   )

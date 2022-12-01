@@ -8,6 +8,7 @@ import useGuest from 'lib/getGuest'
 import NameSection from 'components/NameSection'
 import styles from 'styles/components/Invitation.module.scss'
 import DateSection from 'components/DateSection'
+import CoverSection from 'components/CoverSection'
 
 interface InvitationPageProps {
   slug?: string
@@ -35,6 +36,7 @@ const InvitationPage: FC<InvitationPageProps> = ({
       {!openInvitation &&
         <div className={styles.container}>
           <div className={styles.content}>
+            <CoverSection />
             <NameSection />
             <DateSection />
           </div>
