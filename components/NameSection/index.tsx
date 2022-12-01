@@ -27,6 +27,11 @@ const NameSection: FC = () => {
 
   return (
     <div className={styles.container}>
+      <img
+        src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/sign/photo/Bunga2.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90by9CdW5nYTIucG5nIiwiaWF0IjoxNjY5OTIxMzI5LCJleHAiOjE5ODUyODEzMjl9.NkB7hiiSGGQCYrPTQ_mFLEYKClOidKQlVb89v7KxtP4'}
+        alt="labib - anggi"
+        className={styles.flower}
+      />
       <h3 className={styles.title}><i>Assalamu’alaikum Warahmatullahi Wabarakatuh.</i><br/><br/>Maha suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.<br/>Ya Allah, perkenankanlah kami merangkai kasih sayang yang Kau ciptakan di antara putra-putri kami:</h3>
       <div></div>
       {sectionPerson({
