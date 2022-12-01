@@ -1,0 +1,7 @@
+@import '../utils/variables';
+
+.container {
+    @include fixedHeight(100vh);
+    background-color: rgba($color_white, 0.5);
+    padding: calc(10px + 1.5vh) calc(8px + .8vw);
+}

@@ -1,0 +1,21 @@
+@import '../utils/variables';
+
+.container{
+    @include fixedHeight(100vh);
+    @include fixedWidth(100vw);
+    background-color: transparent;
+    opacity: 1;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    width: 100%;
+    max-width: 800px;
+    background-color: transparent;
+    overflow: auto;
+}

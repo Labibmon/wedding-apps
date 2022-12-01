@@ -1,0 +1,51 @@
+@import '../utils/variables';
+
+
+.container {
+    @include flex(column, center, space-between);
+    background-color: rgba($color_white, 0.5);
+    padding: calc(10px + 1.5vh) calc(10px + 1vw);
+    text-align: center;
+}
+
+.title {
+    @include typographyBuilder(400, 14, 20);
+    margin-top: 0;
+    margin-bottom: calc(24px + 2.4vh);
+
+    i {
+        @include typographyBuilder(600, 16, 18);
+    }
+}
+
+.amp {
+    @include typographyBuilder(600, 52, 52, false);
+    margin: calc(8px + .8vh) 0;
+    color: $colorTheme3;
+}
+
+.personContainer {
+    margin-bottom: calc(20px + 2vh);
+}
+
+.personTitle {
+    @include typographyBuilder(600, 24, 24);
+    margin-bottom: calc(8px + .8vh);
+    margin-top: 0;
+    color: $colorTheme3;
+}
+
+.personDesc {
+    @include typographyBuilder(400, 14, 14);
+    margin-bottom: calc(8px + .8vh);
+    margin-top: 0;
+}
+
+.personPhoto {
+    @include fixedWidth(150px);
+    @include fixedHeight(180px);
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: calc(8px + .8vh);
+    object-position: top;
+}

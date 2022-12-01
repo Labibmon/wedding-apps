@@ -11,25 +11,25 @@ const handler: ServerAPIHandlerTypes = async (
   // get api url from next.config
   const { guestUrlAPI, rowSelectedAPI } = serverRuntimeConfig;
   const {
-    query: { 
-      totalDisplayItems, 
-      name, 
-      time 
-    }
+    query: { id, totalDisplayItems, name, time },
   } = req;
 
   try {
     // hit RestAPI
-    const { data, count } = await supabase
+    const query = supabase
       .from(guestUrlAPI.list)
-      .select(rowSelectedAPI.list, { count: 'exact' })
-      .order('name', { ascending: true })
-      .range(0, parseInt(totalDisplayItems.toString()))
-      .ilike('name', name ? `%${name}%` : `%%`)
-      .ilike('time', time ? `%${time}%` : '%%');
+      .select(rowSelectedAPI.list, { count: "exact" })
+      .order("name", { ascending: true })
+      .range(0, parseInt(totalDisplayItems.toString()));
+
+    if (name) query.ilike("name", `%${name}%`);
+    if (time) query.ilike("time", `%${time}%`);
+    if (id) query.eq("id", id);
+
+    const { data, count } = await query;
 
     // return success
-    res.status(HttpStatus.OK).json({data, totalItems: count});
+    res.status(HttpStatus.OK).json({ data, totalItems: count });
   } catch (error) {
     res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
       code: HttpStatus.INTERNAL_SERVER_ERROR,
