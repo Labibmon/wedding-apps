@@ -3,7 +3,7 @@
 .container {
     @include fixedHeight(100vh);
     position: relative;
-    // padding: calc(10px + 1.5vh) calc(8px + .8vw);
+    overflow: hidden;
 }
 
 .overlay {
@@ -57,6 +57,16 @@
     font-size: 1em;
     font-family: Arial;
     text-shadow: 0 0 1px #000;
+    opacity: .5;
+}
+
+.snowflakes{
+    position: relative;
+    max-height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 @-webkit-keyframes snowflakes-fall {
@@ -113,7 +123,7 @@
 .snowflake {
     position: absolute;
     top: -10%;
-    z-index: 9999;
+    z-index: 0;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

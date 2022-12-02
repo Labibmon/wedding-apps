@@ -50,14 +50,13 @@ const InvitationPage: FC<InvitationPageProps> = ({
   if (isLoading) <>Loading</>
   return (
     <Layout>
-
       <OpenInvitation
         withButton={dataGuest?.data?.length}
         open={openInvitation}
         onClose={() => handleClose()}
         name={dataGuest?.data?.[0]?.name}
       />
-      {!openInvitation &&
+      {/* {!openInvitation && */}
         <div className={styles.container}>
           <div className={styles.content}>
             <button
@@ -66,10 +65,10 @@ const InvitationPage: FC<InvitationPageProps> = ({
             ><span className={`${styles.audioIcon} ${audioPlay ? 'pause' : 'play'}`} /></button>
             <CoverSection />
             <NameSection />
-            <DateSection />
+            <DateSection clock={dataGuest?.data?.[0]?.time} />
           </div>
         </div>
-      }
+      {/* } */}
       {/* <VideoPlayer /> */}
       {/* <ArrivalConfirmation time={data?.[0]?.time} /> */}
     </Layout >
