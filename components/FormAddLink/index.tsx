@@ -17,7 +17,8 @@ const FormAddLink: FC<FormAddLinkTypes> = ({
 }) => {
   const [inputData, setInputData] = useState({
     name: "",
-    time: ""
+    time: "",
+    phone: ""
   })
   const usePostGuest = postGuest();
 
@@ -36,6 +37,11 @@ const FormAddLink: FC<FormAddLinkTypes> = ({
       {
         onSuccess: () => {
           toast.success("Data berhasil di simpan");
+          setInputData({
+            name: "",
+            time: "",
+            phone: ""
+          })
           refetch();
         },
         onError: (err: any) => {
@@ -78,6 +84,17 @@ const FormAddLink: FC<FormAddLinkTypes> = ({
           />
           <label
             className={styles.formAddLinkLabel}
+          >Masukan nomor hp undangan :</label>
+          <input
+            type='tel'
+            required
+            className={styles.formAddLinkInput}
+            onChange={handleChange}
+            name="phone"
+            placeholder='0818238213'
+          />
+          <label
+            className={styles.formAddLinkLabel}
           >Tentukan waktu kedatangan</label>
           <select
             className={styles.formAddLinkInput}
@@ -86,7 +103,7 @@ const FormAddLink: FC<FormAddLinkTypes> = ({
             required
           >
             <option disabled selected> -- select an option -- </option>
-            <option value="11:00 - 13:00">11:00 - 12:00</option>
+            <option value="11:00 - 13:00">11:00 - 13:00</option>
             <option value="13:00 - 14:00">13:00 - 14:00</option>
           </select>
           <button

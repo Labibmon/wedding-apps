@@ -43,7 +43,8 @@ const ListGuest: FC<ListGuestPropsType> = ({
 
   const handleGenerateLinkWhatsapp = (phone: string, name: string, id: string) => {
     //link todo
-    const message: string = `Untuk%20${name}%2C%20%0A%0AAssalamu'alaikum%20Warahmatullah%20Wabarakatuh%0ABismillahirahmanirrahim.%0A%0ASebelumnya%20kami%20meminta%20maaf%20karena%20mengabarkan%20berita%20bahagia%20hanya%20melalui%20pesan%20singkat.%0A%0ASuatu%20kehormatan%20dan%20kebahagiaan%20bagi%20kami%2C%20apabila%20Saudara%2Fi%20berkenan%20memberikan%20doa%20restu%20serta%20menghadiri%20pernikahan%20kami%3A%0A%0A%E2%9C%A8%20Anggi%20Rizky%20Ayuningtyas%20S%20%26%20M%20Labib%20Naufal%20Ansi%20%E2%9C%A8%0A%0A%F0%9F%93%A9%20Klik%20tautan%20untuk%20menuju%20undangan%20digitalmu%20%3A%20%0A%0Ahttp%3A%2F%2F${hostname}%2F${id}%2F%0A%0AJangan%20lupa%20mengisi%20Ucapan%20dan%20Konfirmasi%20Kehadiran%20di%20bagian%20Kirimkan%20Pesan%20ya.%0A%0ATerimakasih%20banyak%20atas%20doa%20dan%20restunya.%E2%9C%A8%0A%0ANb%20%3A%20Dikarenakan%20jumlah%20undangan%20yang%20terbatas%2C%20Kami%20mohon%20agar%20undangan%20ini%20tidak%20disebarluaskan%20tanpa%20sepengetahuan%20kami%0A%0AWassalamu'alaikum%20Warahmatullah%20Wabarakatuh%0A%0ADari%20kami%20yang%20berbahagia%2C%F0%9F%8C%B9%0AAnggi%20%26%20Labib`
+    const message: string = `Assalamu%E2%80%99alaikum%20Wr.%20Wb.%0A%0AKepada%20Yth.%20%0ABapak%2FIbu%2FSaudara%2Fi%20%0A${name}%0A%0ADengan%20memohon%20rahmat%20dan%20ridho%20Allah%20SWT%2C%20tanpa%20mengurangi%20rasa%20hormat%2C%20kami%20bermaksud%20mengundang%20Bapak%2FIbu%2FSaudara%2Fi%20untuk%20menghadiri%20acara%20resepsi%20pernikahan%20putra%20putri%20kami%20%3A%20%0A%0AAnggi%20Rizky%20A.%20Sugiwarso%20%0APutri%20pertama%20dari%20IPTU%20Sugiwarso%2C%20S.%20E.%20%26%20Ibu%20Muntianah%0A%0Adengan%20%0A%0AMochamad%20Labib%20Naufal%20Ansi%0APutra%20ketiga%20dari%20Bapak%20Agus%20Salim%20NH%20%26%20Ibu%20Siti%20Khosidah%0A%0ASilahkan%20klik%20link%20di%20bawah%20ini%20untuk%20info%20lengkap%20dari%20acara%20kami%20%3A%0A${hostname}%2Finvitation%2F${id}%0A%0AMerupakan%20suatu%20kebahagiaan%20bagi%20kami%20apabila%20Bapak%2FIbu%2FSaudara%2Fi%20berkenan%20untuk%20hadir%20dan%20memberikan%20doa%20restu%0A%0AMohon%20maaf%20karena%20mengabarkan%20berita%20bahagia%20melalui%20pesan%20singkat%0A%0ATerima%20kasih%20banyak%20atas%20perhatian%20dan%20kehadirannya%0A%0AWassalamu%27alaikum%20Wr.%20Wb.`
+  
     const urlWhatsapp: string = `https://wa.me/${phone}?text=${message}&lang=id`
 
     window.open(urlWhatsapp, '_ blank')
@@ -75,7 +76,7 @@ const ListGuest: FC<ListGuestPropsType> = ({
             onChange={handleChangeTime}
           >
             <option selected value=''>Semua Waktu</option>
-            <option value="11:00 - 12:00">11:00 - 13:00</option>
+            <option value="11:00 - 13:00">11:00 - 13:00</option>
             <option value="13:00 - 14:00">13:00 - 14:00</option>
           </select>
         </div>
@@ -91,15 +92,15 @@ const ListGuest: FC<ListGuestPropsType> = ({
               <label className={styles.listGuestItemTime}><span className={styles.iconDate} /> {dataGuest?.time} WIB</label>
             </div>
             <div className={styles.listGuestItemLink}>
-              <label>{hostname}/{dataGuest?.id}</label>
+              <label>{hostname}/invitation/{dataGuest?.id}</label>
               <div>
                 <span
-                  onClick={() => handleCopy(`${hostname}/${dataGuest.id}`)}
+                  onClick={() => handleCopy(`${hostname}/invitation/${dataGuest.id}`)}
                   className={styles.listGuestItemLinkIcon}
                 />
 
                 <span
-                  onClick={() => handleGenerateLinkWhatsapp('+6281395204843', dataGuest?.name, dataGuest?.id)}
+                  onClick={() => handleGenerateLinkWhatsapp(dataGuest?.phone, dataGuest?.name, dataGuest?.id)}
                   className={styles.listGuestItemLinkIconWhatsapp}
                 />
               </div>
