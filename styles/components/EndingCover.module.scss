@@ -12,7 +12,7 @@
     position: absolute;
     top: 0;
     z-index: 1;
-    background: linear-gradient(0deg, rgba(57, 7, 36, 0.8), transparent 70%, rgb(231 224 228));
+    background: linear-gradient(0deg, rgba(57, 7, 36, 0.8), transparent 70%, rgb(253 251 253));
 }
 
 .content {
@@ -50,10 +50,22 @@
 .date {
     @include typographyBuilder(400, 16, 20);
     color: $color_white;
-    margin-top: calc(10px + 1vh);
+    margin: calc(10px + 1vh) 0 0;
 }
 
+.title {
+    @include typographyBuilder(600, 14, 16);
+    color: $color_black;
+    margin: calc(10px + 1vh) 0 0;
+    text-align: center;
+}
 
+.titleFamily{
+    @include typographyBuilder(400, 14, 16);
+    color: $color_black;
+    margin: calc(10px + 1vh) 0 0;
+    text-align: center;
+}
 
 .snowflake {
     color: #fff;

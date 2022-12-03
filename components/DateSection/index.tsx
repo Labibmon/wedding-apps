@@ -6,20 +6,31 @@ import Link from 'next/link';
 
 type DateSectionPropsType = {
   clock?: string
+  setConfirm: () => void
 }
 
 const DateSection: FC<DateSectionPropsType> = ({
-  clock
+  clock,
+  setConfirm,
 }) => {
-  const myLoader = (url:string) => {
-    return `https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/sign/photo/Bunga1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90by9CdW5nYTEucG5nIiwiaWF0IjoxNjY5OTc5NDQ1LCJleHAiOjE5ODUzMzk0NDV9.ztkMqGzTaeKvyhn0e-pADMg1qWZ4ogNGLFZ5sajKjpY`;
+  const myLoader = (url: string) => {
+    return url;
   }
+
+  const photoUrl = [
+    'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/photo1',
+    'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/photo3',
+    'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/photo4',
+    'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/photo5',
+    'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/photo2',
+    'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/photo6',
+  ]
 
   return (
     <div className={styles.container}>
       {/* <div className={styles.overlay}></div> */}
       <div className={styles.content}>
-        <div
+        {/* <div
           className={styles.flowerContainer}
         >
           <div
@@ -36,8 +47,8 @@ const DateSection: FC<DateSectionPropsType> = ({
               layout="responsive"
             />
           </div>
-        </div>
-        {/* <h3 className={styles.title}>Kami memohon do'a restu agar proses pernikahan kami berjalan lancar dan dirahmati oleh Allah SWT.</h3> */}
+        </div> */}
+        <h3 className={styles.title}>Dengan memohon rahmad dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra putri kami.</h3>
         <div className={styles.section}>
           <h3>AKAD NIKAH</h3>
           <h4>Minggu, 11 Desember 2022</h4>
@@ -65,7 +76,37 @@ const DateSection: FC<DateSectionPropsType> = ({
           <Link href="https://goo.gl/maps/ZSMSU2JFTygXNWAQ9"  >
             <a target="_blank" className={stylesButton.btn_primaryLongSmall}>Buka Map</a>
           </Link>
+          <br />
+          <button
+            onClick={setConfirm}
+            className={stylesButton.btn_secondaryLongSmall}>
+            Konfirmasi Kehadiran
+          </button>
+          <div className={styles.sectionGalery}>
+            <h3>GALLERI KAMI</h3>
+          </div>
+          <div className={styles.gallery}>
+            {photoUrl.map((url, key) => (
+              <div
+                key={key}
+                className={styles.galleryItem}
+              >
+                <Image
+                  loader={() => myLoader(url)}
+                  src={url}
+                  alt="labib - anggi"
+                  // className={styles.flower}
+                  width={"100%"}
+                  // height={"auto"}
+                  quality={75}
+                  layout="fill"
+                  objectFit='cover'
+                  objectPosition="50% 70%"
+                />
+              </div>
+            ))}
 
+          </div>
         </div>
       </div>
 

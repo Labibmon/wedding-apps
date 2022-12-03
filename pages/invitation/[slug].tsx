@@ -71,7 +71,10 @@ const InvitationPage: FC<InvitationPageProps> = ({
           ><span className={`${styles.audioIcon} ${audioPlay ? 'pause' : 'play'}`} /></button>
           <CoverSection />
           <NameSection />
-          <DateSection clock={dataGuest?.data?.[0]?.time} />
+          <DateSection
+            clock={dataGuest?.data?.[0]?.time} 
+            setConfirm={() => setConfirm(!confirm)}
+          />
           <EndingCover />
         </div>
       </div>

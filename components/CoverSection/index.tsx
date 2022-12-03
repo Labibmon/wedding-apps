@@ -4,14 +4,14 @@ import styles from 'styles/components/CoverSection.module.scss'
 
 const CoverSection: FC = () => {
   const myLoader = () => {
-    return `https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/cover.jpg`;
+    return `https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/cover`;
   }
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
       <Image
         loader={myLoader}
-        src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/cover.jpg'}
+        src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/cover'}
         alt="labib - anggi"
         className={styles.photo}
         width={100}

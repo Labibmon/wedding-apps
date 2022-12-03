@@ -10,7 +10,7 @@ const EndingCover: FC<EndingCoverPropsType> = ({
   clock
 }) => {
   const myLoader = () => {
-    return `https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/sign/photo/coverEnding?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90by9jb3ZlckVuZGluZyIsImlhdCI6MTY3MDA1MjYzMywiZXhwIjoxOTg1NDEyNjMzfQ.MBfzQE1e43tvRhwVPWcJRQtntqWeTuOxic6fPWKe52s`;
+    return `https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/coverEnding`;
   }
   return (
     <div className={styles.container}>
@@ -18,7 +18,7 @@ const EndingCover: FC<EndingCoverPropsType> = ({
 
       <Image
         loader={myLoader}
-        src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/sign/photo/coverEnding?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90by9jb3ZlckVuZGluZyIsImlhdCI6MTY3MDA1MjYzMywiZXhwIjoxOTg1NDEyNjMzfQ.MBfzQE1e43tvRhwVPWcJRQtntqWeTuOxic6fPWKe52s'}
+        src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/coverEnding'}
         alt="labib - anggi"
         className={styles.photo}
         width={100}
@@ -26,9 +26,12 @@ const EndingCover: FC<EndingCoverPropsType> = ({
         quality={75}
         layout="fill"
       />
-      
+
       <div className={styles.content}>
-        <p className={styles.desc}>Suatu kehormatan dan kebahagiaan bagi kami jika Bapak/Ibu/Saudara/i. Silahkan datang untuk memberikan restu, kami ucapkan terima kasih.</p>
+        {/* <p className={styles.desc}>Suatu kehormatan dan kebahagiaan bagi kami jika Bapak/Ibu/Saudara/i. Silahkan datang untuk memberikan restu, kami ucapkan terima kasih.</p> */}
+        <h4 className={styles.title}>Kami yang berbahagia</h4>
+        <h5 className={styles.titleFamily}>Keluarga IPTU Sugiwarso, S.E. dan Ibu Muntianah</h5>
+        <h5 className={styles.titleFamily}>Keluarga Bapak Agus Salim NH dan Ibu Siti Khosidah</h5>
         {/* <p className={styles.date}>11&nbsp;&nbsp;.&nbsp;&nbsp;12&nbsp;&nbsp;.&nbsp;&nbsp;22</p> */}
         <h3 className={styles.name}>Anggi &amp; Labib &nbsp;.</h3>
       </div>

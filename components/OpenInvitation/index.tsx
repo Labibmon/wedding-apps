@@ -23,29 +23,42 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
     <div
       className={`${styles.container} ${open ? 'open' : 'close'}`}
     >
-      <div className={styles.backgroundContainer}>
-        <div className={styles.background}>
-          <Image
-            loader={() => myLoader("https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background1.png")}
-            src={"https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background1.png"}
-            alt="labib - anggi"
-            width={"150px"}
-            height={"180px"}
-            quality={75}
-            layout="responsive"
-          />
-          <Image
-            loader={() => myLoader("https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background2.png")}
-            src={"https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background2.png"}
-            alt="labib - anggi"
-            width={"150px"}
-            height={"180px"}
-            quality={75}
-            layout="responsive"
-          />
+      {!open &&
+        <div className={styles.backgroundContainer}>
+          <div className={styles.background}>
+            <Image
+              loader={() => myLoader("https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background1.png")}
+              src={"https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background1.png"}
+              alt="labib - anggi"
+              width={"150px"}
+              height={"180px"}
+              quality={75}
+              layout="responsive"
+            />
+            <Image
+              loader={() => myLoader("https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background2.png")}
+              src={"https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background2.png"}
+              alt="labib - anggi"
+              width={"150px"}
+              height={"180px"}
+              quality={75}
+              layout="responsive"
+            />
+          </div>
         </div>
-      </div>
-
+      }
+      <div className={styles.overlay}></div>
+      <Image
+        loader={() => myLoader('https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/photoOpen')}
+        src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/photoOpen'}
+        alt="labib - anggi"
+        className={styles.photo}
+        width={100}
+        height={100}
+        quality={75}
+        layout="fill"
+        objectFit='cover'
+      />
       <div className={styles.body}>
         <div
           className={styles.photo}
@@ -66,7 +79,7 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
         {withButton &&
           <div className={styles.content}>
             <div className={styles.text}>
-              <p>Kepada Bpk/Ibu/Saudara/i</p>
+              <p>Kepada Bapak/Ibu/Saudara/i</p>
               <h3>{name}</h3>
               <p>Tanpa mengurangi rasa hormat, kami mengundang anda untuk hadir di acara pernikahan kami.</p>
             </div>
