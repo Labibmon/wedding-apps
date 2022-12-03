@@ -5,23 +5,49 @@ import stylesButton from 'styles/components/Button.module.scss'
 
 type ArrivalConfirmationPropType = {
   time: string
+  open: boolean
+  onClose: () => void
 }
 
 const ArrivalConfirmation: FC<ArrivalConfirmationPropType> = ({
   time,
+  open,
+  onClose
 }) => {
   const [arrival, setArrival] = useState<boolean>()
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault()
   }
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${open ? 'open' : 'close'}`}
+    >
+      {/* <button
+        onClick={onClose}
+        className={styles.close}
+      >X</button> */}
       <div
         className={`${styles.confirmation} ${arrival === undefined ? 'show' : 'hidden'}`}
       >
-        <h3 className={styles.title}>Apakah anda akan hadir ke acara ?</h3>
+        {/* <h3 className={styles.title}>Apakah anda akan hadir ke acara ?</h3> */}
+        <div className={styles.headerContainer}>
+          <div className={styles.header}>
+            <button
+              type='button'
+              className={styles.back}
+              onClick={onClose}
+            >
+              <span className={styles.backIcon} />
+            </button>
+            <h3 className={styles.formHeaderTitle}>
+              Apakah anda akan hadir ke acara ?
+            </h3>
+          </div>
+        </div>
+
+
         <div className={styles.descriptionContainer}>
           <label>
             <span className={styles.iconPlace} /> Gedung Wijaya Kusuma,

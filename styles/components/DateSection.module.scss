@@ -11,25 +11,28 @@
 }
 
 .container {
-  @include fixedHeight(100vh);
-  background-color: rgba($color_white, 0.5);
+  // @include fixedHeight(100vh);
   position: relative;
 }
 
 .content {
-  @include fixedHeight(100vh);
+  // @include fixedHeight(100vh);
   @include fixedWidth(100vw);
-  position: absolute;
-  top: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  // position: absolute;
+  // top: 0;
   z-index: 2;
-  padding: calc(10px + 1.5vh) calc(10px + 1.5vw);
+  padding: calc(30px + 3.5vh) calc(10px + 1.5vw) 0;
   // color: $color_white;
 }
 
 .section {
   padding: 0 calc(8px + .8vw);
-  margin-bottom: calc(20px + 2vh);
   z-index: 1;
+
+  &:not(:last-child) {
+    margin-bottom: calc(20px + 2vh);
+  }
 
   h3 {
     @include flex(row, center, center);
@@ -62,7 +65,11 @@
 }
 
 .flower {
-  @include fixedHeight(80px);
+  @include fixedHeight(60px);
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .flowerContainer {
@@ -71,10 +78,6 @@
   top: -30px;
   z-index: 10;
   width: 100%;
-  animation-name: spin;
-  animation-duration: 5000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
 }
 
 .title {
@@ -90,4 +93,16 @@
   top: 0;
   z-index: 0;
   background: linear-gradient(0deg, rgba(57, 7, 36, 0.3), transparent 50%, rgb(231, 224, 228));
+}
+
+.map {
+  margin-bottom: calc(18px + .9vh);
+  @include fixedHeight("350px");
+  @include fixedWidth("100%");
+
+  iframe {
+    div[class$="default-car"] {
+      display: none !important;
+    }
+  }
 }

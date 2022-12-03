@@ -12,7 +12,7 @@
     position: absolute;
     top: 0;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(57, 7, 36, 0.8), transparent 70%, rgb(231 224 228));
+    background: linear-gradient(0deg, rgba(57, 7, 36, 0.8), transparent 70%, rgb(231 224 228));
 }
 
 .content {
@@ -25,15 +25,25 @@
     color: $color_white;
 }
 
+.photo {
+    @include fixedHeight(130vh);
+    @include fixedWidth(100vw);
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    object-fit: cover;
+}
+
 .name {
-    @include typographyBuilder(400, 42, 42, false);
-    color: $color_white;
+    @include typographyBuilder(400, 24, 24, false);
+    color: $color_black;
     margin-top: calc(24px + 2.4vh);
+    text-align: center;
 }
 
 .desc {
     @include typographyBuilder(400, 14, 20);
-    color: $color_white;
+    color: $color_black;
     margin-top: calc(30px + 3vh);
 }
 
@@ -43,14 +53,7 @@
     margin-top: calc(10px + 1vh);
 }
 
-.photo {
-    @include fixedHeight(100vh);
-    @include fixedWidth(100vw);
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    object-fit: cover;
-}
+
 
 .snowflake {
     color: #fff;
