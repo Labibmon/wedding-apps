@@ -77,7 +77,7 @@
   @include typographyBuilder(400, 14, 12);
   width: 60px;
   text-align: center;
-  -moz-appearance: textfield !important; 
+  -moz-appearance: textfield !important;
 
   &::-webkit-inner-spin-button {
     -webkit-appearance: none !important;
@@ -115,8 +115,7 @@
   @include icon('back', $colorTheme1, 16px, 16px)
 }
 
-.buttonSubmit
-{
+.buttonSubmit {
   margin-top: 8px;
 }
 
@@ -129,7 +128,7 @@
 .descriptionContainer {
   @include flex(row, center, center, true);
 
-  > label{
+  >label {
     @include typographyBuilder(400, 12, 12);
     @include flex(row, center);
     text-align: left;
@@ -173,7 +172,7 @@
   @include icon('place', $colorTheme1, 14px, 14px)
 }
 
-.close{
+.close {
   @include typographyBuilder(600, 24, 24);
   background-color: transparent;
   position: absolute;
@@ -183,9 +182,77 @@
   outline: 0;
 }
 
-.headerContainer{
+.headerContainer {
   margin-bottom: 25px;
   position: relative;
   display: block;
   text-align: center;
+}
+
+.weddingGiftContainer {
+  text-align: left;
+}
+
+.weddingGiftTitle {
+  @include typographyBuilder(400, 14, 16);
+  margin-bottom: calc(5px + .5vh);
+}
+
+.weddingGift {
+  @include typographyBuilder(600, 14, 16);
+  margin-bottom: calc(8px + .8vh);
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  color: $colorTheme1;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.weddingGiftDetail {
+  margin-bottom: calc(10px + 1vh);
+}
+
+.weddingGiftDetailRekening {
+  @include flex(row, center, space-between);
+  border: 1px solid $color_light_border;
+  border-radius: 3px;
+  padding: calc(5px + .5vh) calc(5px + .5vw);
+  margin-bottom: calc(5px + .5vh);
+
+  h3 {
+    @include typographyBuilder(400, 16, 18);
+    margin: 0;
+
+    span {
+      @include typographyBuilder(600, 14, 18);
+    }
+
+    label{
+      @include typographyBuilder(400, 12, 14);
+    }
+  }
+
+  p {
+    @include typographyBuilder(600, 12, 18);
+    margin: 0;
+  }
+}
+
+.weddingGiftDetailTitle{
+  @include typographyBuilder(400, 16, 18);
+  @include flex(row, center, center);
+  margin-bottom: calc(10px + .10vh);
+  margin-top: 0;
+  color: $colorTheme3;
+
+  &::after {
+    @include fixedHeight(2px);
+    content: "";
+    display: block;
+    margin-left: calc(8px + .8vw);
+    width: 100%;
+    border-bottom: 1px solid $colorTheme3;
+  }
 }

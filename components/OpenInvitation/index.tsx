@@ -87,7 +87,6 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
             <div className={styles.text}>
               <p>Kepada Bapak/Ibu/Saudara/i</p>
               <h3>{name}</h3>
-              <p>Tanpa mengurangi rasa hormat, kami mengundang anda untuk hadir di acara pernikahan kami.</p>
             </div>
             <button
               className={stylesButton.btn_primaryLong}

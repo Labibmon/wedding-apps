@@ -27,7 +27,8 @@ const InvitationPage: FC<InvitationPageProps> = ({
   const {
     data: dataGuest,
     isLoading,
-  } = useGuest({ id: slug, totalDisplayItems: 10 })
+    refetch
+  } = useGuest({ id: slug, totalDisplayItems: 1 })
 
   const handleClose = () => {
     setOpenInvitation(false)
@@ -73,6 +74,7 @@ const InvitationPage: FC<InvitationPageProps> = ({
           <NameSection />
           <DateSection
             clock={dataGuest?.data?.[0]?.time} 
+            isConfirm={dataGuest?.data?.[0]?.arrival !== null}
             setConfirm={() => setConfirm(!confirm)}
           />
           <EndingCover />
@@ -81,9 +83,10 @@ const InvitationPage: FC<InvitationPageProps> = ({
       {/* } */}
       {/* <VideoPlayer /> */}
       <ArrivalConfirmation 
-        time={dataGuest?.data?.[0]?.time} 
+        dataGuest={dataGuest?.data?.[0]} 
         open={confirm}
         onClose={()=> setConfirm(false)}
+        refetch={refetch}
       />
     </Layout >
   )

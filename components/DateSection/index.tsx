@@ -7,11 +7,13 @@ import Link from 'next/link';
 type DateSectionPropsType = {
   clock?: string
   setConfirm: () => void
+  isConfirm: boolean
 }
 
 const DateSection: FC<DateSectionPropsType> = ({
   clock,
   setConfirm,
+  isConfirm
 }) => {
   const myLoader = (url: string) => {
     return url;
@@ -80,10 +82,12 @@ const DateSection: FC<DateSectionPropsType> = ({
             <a target="_blank" className={stylesButton.btn_primaryLongSmall}>Buka Map</a>
           </Link>
           <br />
+          <h3>KEHADIRAN</h3>
+          <p>Tanpa mengurangi rasa hormat, kami mengundang anda untuk hadir di acara pernikahan kami.</p>
           <button
             onClick={setConfirm}
             className={stylesButton.btn_secondaryLongSmall}>
-            Konfirmasi Kehadiran
+            {isConfirm ? 'Lihat' : 'Konfirmasi'} Kehadiran
           </button>
           <div className={styles.sectionGalery}>
             <h3>GALLERI KAMI</h3>
