@@ -51,12 +51,19 @@
 }
 
 .personPhoto {
-    @include fixedWidth(150px);
+    @include flex(row, center, center);
     @include fixedHeight(180px);
     border-radius: 20px;
     object-fit: cover;
     margin-bottom: calc(8px + .8vh);
     object-position: top;
+
+    span{
+    @include flex(row, center, center);
+        display: block;
+        @include fixedWidth(150px);
+        @include fixedHeight(180px);
+    }
 }
 
 .flower{

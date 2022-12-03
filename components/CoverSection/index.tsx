@@ -1,15 +1,23 @@
 import { FC } from 'react';
+import Image from 'next/image'
 import styles from 'styles/components/CoverSection.module.scss'
 
 const CoverSection: FC = () => {
-
+  const myLoader = () => {
+    return `https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/cover.jpg`;
+  }
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
-      <img
-        src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/sign/photo/cover.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90by9jb3Zlci5qcGciLCJpYXQiOjE2Njk5MTkzNzksImV4cCI6MTk4NTI3OTM3OX0.uqPwik0ZWuja3Rb23p3DON4Ks-zdHBCjqoEE7ajnkE4'}
+      <Image
+        loader={myLoader}
+        src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/cover.jpg'}
         alt="labib - anggi"
         className={styles.photo}
+        width={100}
+        height={100}
+        quality={75}
+        layout="fill"
       />
       <div className={styles.content}>
         <h3 className={styles.name}>Anggi &amp; Labib</h3>

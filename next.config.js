@@ -1,3 +1,4 @@
+/** @type {import('next').NextConfig} */
 const withPWA = require('next-pwa')({
   dest: 'public',
   disable: process.env.NODE_ENV === "development",
@@ -19,8 +20,16 @@ module.exports = withPWA({
     baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
     apiUrl: process.env.NEXT_PUBLIC_API_URL,
   }, 
-
   reactStrictMode: true,
+
+  images: {
+    remotePatterns: [
+      {
+        domains: 'gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/',
+      },
+    ],
+  },
+  
 
   headers: {
     "X-Frame-Options": "sameorigin",

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image'
 import styles from 'styles/components/NameSection.module.scss'
 
 const NameSection: FC = () => {
@@ -10,13 +11,23 @@ const NameSection: FC = () => {
     mother,
     photo,
   }) => {
+    const myLoader = () => {
+      return photo;
+    }
     return (
       <div className={styles.personContainer}>
-        <img
-          src={photo}
-          alt="labib - anggi"
-          className={styles.personPhoto}
-        />
+        <div   className={styles.personPhoto}>
+          <Image
+            loader={myLoader}
+            src={photo}
+            alt="labib - anggi"
+            className={styles.personPhoto}
+            width={"150px"}
+            height={"180px"}
+            quality={75}
+            layout="responsive"
+          />
+        </div>
         <div className={styles.personText}>
           <h3 className={styles.personTitle}>{name}</h3>
           <p className={styles.personDesc}>{female ? 'Putri' : 'Putra'} dari Bpk. {father}, &amp; Ibu {mother}</p>
@@ -32,7 +43,7 @@ const NameSection: FC = () => {
         alt="labib - anggi"
         className={styles.flower}
       />
-      <h3 className={styles.title}><i>Assalamu’alaikum Warahmatullahi Wabarakatuh.</i><br/><br/>Maha suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.<br/>Ya Allah, perkenankanlah kami merangkai kasih sayang yang Kau ciptakan di antara putra-putri kami:</h3>
+      <h3 className={styles.title}><i>Assalamu’alaikum Warahmatullahi Wabarakatuh.</i><br /><br />Maha suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan.<br />Ya Allah, perkenankanlah kami merangkai kasih sayang yang Kau ciptakan di antara putra-putri kami:</h3>
       <div></div>
       {sectionPerson({
         name: "Anggi Rizky A. Sugiwarso",

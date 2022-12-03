@@ -24,14 +24,9 @@ const ArrivalConfirmation: FC<ArrivalConfirmationPropType> = ({
     <div
       className={`${styles.container} ${open ? 'open' : 'close'}`}
     >
-      {/* <button
-        onClick={onClose}
-        className={styles.close}
-      >X</button> */}
       <div
         className={`${styles.confirmation} ${arrival === undefined ? 'show' : 'hidden'}`}
       >
-        {/* <h3 className={styles.title}>Apakah anda akan hadir ke acara ?</h3> */}
         <div className={styles.headerContainer}>
           <div className={styles.header}>
             <button

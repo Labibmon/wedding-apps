@@ -17,7 +17,7 @@
 
 .content {
     @include fixedHeight(100vh);
-    @include fixedWidth(100vw);
+    @include fixedWidth(100%);
     position: absolute;
     top: 0;
     z-index: 2;

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image'
 import styles from 'styles/components/DateSection.module.scss'
 import stylesButton from 'styles/components/Button.module.scss'
 import Link from 'next/link';
@@ -10,6 +11,9 @@ type DateSectionPropsType = {
 const DateSection: FC<DateSectionPropsType> = ({
   clock
 }) => {
+  const myLoader = (url:string) => {
+    return `https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/sign/photo/Bunga1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90by9CdW5nYTEucG5nIiwiaWF0IjoxNjY5OTc5NDQ1LCJleHAiOjE5ODUzMzk0NDV9.ztkMqGzTaeKvyhn0e-pADMg1qWZ4ogNGLFZ5sajKjpY`;
+  }
 
   return (
     <div className={styles.container}>
@@ -18,11 +22,20 @@ const DateSection: FC<DateSectionPropsType> = ({
         <div
           className={styles.flowerContainer}
         >
-          <img
-            src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/sign/photo/Bunga1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90by9CdW5nYTEucG5nIiwiaWF0IjoxNjY5OTc5NDQ1LCJleHAiOjE5ODUzMzk0NDV9.ztkMqGzTaeKvyhn0e-pADMg1qWZ4ogNGLFZ5sajKjpY'}
-            alt="labib - anggi"
-            className={styles.flower}
-          />
+          <div
+              className={styles.flower}
+          >
+            <Image
+              loader={() => myLoader(`https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/sign/photo/Bunga1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90by9CdW5nYTEucG5nIiwiaWF0IjoxNjY5OTc5NDQ1LCJleHAiOjE5ODUzMzk0NDV9.ztkMqGzTaeKvyhn0e-pADMg1qWZ4ogNGLFZ5sajKjpY`)}
+              src={'https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/sign/photo/Bunga1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwaG90by9CdW5nYTEucG5nIiwiaWF0IjoxNjY5OTc5NDQ1LCJleHAiOjE5ODUzMzk0NDV9.ztkMqGzTaeKvyhn0e-pADMg1qWZ4ogNGLFZ5sajKjpY'}
+              alt="labib - anggi"
+              className={styles.flower}
+              width={"100px"}
+              height={100}
+              quality={75}
+              layout="responsive"
+            />
+          </div>
         </div>
         {/* <h3 className={styles.title}>Kami memohon do'a restu agar proses pernikahan kami berjalan lancar dan dirahmati oleh Allah SWT.</h3> */}
         <div className={styles.section}>
