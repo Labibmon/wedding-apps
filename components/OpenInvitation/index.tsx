@@ -32,7 +32,7 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
               alt="labib - anggi"
               width={"150px"}
               height={"180px"}
-              quality={75}
+              quality={30}
               layout="responsive"
             />
             <Image
@@ -41,7 +41,7 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
               alt="labib - anggi"
               width={"150px"}
               height={"180px"}
-              quality={75}
+              quality={30}
               layout="responsive"
             />
           </div>
@@ -55,7 +55,7 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
         className={styles.photo}
         width={100}
         height={100}
-        quality={75}
+        quality={30}
         layout="fill"
         objectFit='cover'
       />

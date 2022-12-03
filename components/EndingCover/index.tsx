@@ -23,7 +23,7 @@ const EndingCover: FC<EndingCoverPropsType> = ({
         className={styles.photo}
         width={100}
         height={100}
-        quality={75}
+        quality={35}
         layout="fill"
       />
 

@@ -62,17 +62,20 @@ const DateSection: FC<DateSectionPropsType> = ({
           <p>Pukul {clock}</p>
           <h4>Gedung Pertemuan Wijaya Kusuma KSPKP</h4>
           <p>Jl. Dr.Wahidin Sudirohusodo No.77, Kec.Tuban, Kab.Tuban, Jawa Timur</p>
-          <div className={styles.map}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1980.4614162869268!2d112.0420433!3d-6.8998324!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdf5c493c42adf783!2sGedung%20Pertemuan%20Wijaya%20Kusuma%20KSPKP%20Tuban!5e0!3m2!1sid!2sid!4v1670049811275!5m2!1sid!2sid"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+          <Link href="https://goo.gl/maps/ZSMSU2JFTygXNWAQ9"  >
+            <a target="_blank" className={styles.map}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1980.4614162869268!2d112.0420433!3d-6.8998324!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdf5c493c42adf783!2sGedung%20Pertemuan%20Wijaya%20Kusuma%20KSPKP%20Tuban!5e0!3m2!1sid!2sid!4v1670049811275!5m2!1sid!2sid"
+                width="100%"
+                height="100%"
+                scrolling="no"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </a>
+          </Link>
           <Link href="https://goo.gl/maps/ZSMSU2JFTygXNWAQ9"  >
             <a target="_blank" className={stylesButton.btn_primaryLongSmall}>Buka Map</a>
           </Link>
@@ -98,7 +101,7 @@ const DateSection: FC<DateSectionPropsType> = ({
                   // className={styles.flower}
                   width={"100%"}
                   // height={"auto"}
-                  quality={40}
+                  quality={30}
                   layout="fill"
                   objectFit='cover'
                   objectPosition="50% 70%"

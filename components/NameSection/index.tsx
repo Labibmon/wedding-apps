@@ -27,7 +27,7 @@ const NameSection: FC = () => {
             className={styles.personPhoto}
             width={"150px"}
             height={"180px"}
-            quality={75}
+            quality={30}
             layout="responsive"
           />
         </div>

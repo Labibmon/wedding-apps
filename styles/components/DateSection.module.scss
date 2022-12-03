@@ -98,9 +98,10 @@
 }
 
 .map {
-  margin-bottom: calc(18px + .9vh);
   @include fixedHeight("350px");
   @include fixedWidth("100%");
+  display: block;
+  margin-bottom: calc(18px + .9vh);
 
   iframe {
     div[class$="default-car"] {
