@@ -79,7 +79,7 @@
 .body {
   @include flex(column, center, space-between);
   @include fixedHeight(100vh);
-  padding: calc(20px + 2vh) 0;
+  padding: calc(40px + 4vh) 0;
   z-index: 1;
 }
 
