@@ -105,6 +105,8 @@ const DateSection: FC<DateSectionPropsType> = ({
                   layout="fill"
                   objectFit='cover'
                   objectPosition="50% 70%"
+                  placeholder="blur"
+                  blurDataURL={url}
                 />
               </div>
             ))}

@@ -25,6 +25,8 @@ const EndingCover: FC<EndingCoverPropsType> = ({
         height={100}
         quality={35}
         layout="fill"
+        placeholder="blur"
+        blurDataURL='https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/coverEnding'
       />
 
       <div className={styles.content}>

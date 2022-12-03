@@ -34,6 +34,8 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
               height={"180px"}
               quality={30}
               layout="responsive"
+              placeholder="blur"
+              blurDataURL='https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background1.png'
             />
             <Image
               loader={() => myLoader("https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background2.png")}
@@ -43,6 +45,8 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
               height={"180px"}
               quality={30}
               layout="responsive"
+              placeholder="blur"
+              blurDataURL='https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/video/background2.png'
             />
           </div>
         </div>
@@ -58,7 +62,9 @@ const OpenInvitation: FC<OpenInvitationTypes> = ({
         quality={30}
         layout="fill"
         objectFit='cover'
-      />
+        placeholder="blur"
+        blurDataURL='https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/photoOpen'
+     />
       <div className={styles.body}>
         <div
           className={styles.photo}

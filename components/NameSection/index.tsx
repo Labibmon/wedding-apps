@@ -29,6 +29,8 @@ const NameSection: FC = () => {
             height={"180px"}
             quality={30}
             layout="responsive"
+            placeholder="blur"
+            blurDataURL={photo}    
           />
         </div>
         <div className={styles.personText}>

@@ -18,6 +18,8 @@ const CoverSection: FC = () => {
         height={100}
         quality={75}
         layout="fill"
+        placeholder="blur"
+        blurDataURL='https://gctupmxqbczdwwhyntpz.supabase.co/storage/v1/object/public/photo/cover'
       />
       <div className={styles.content}>
         <h3 className={styles.name}>Anggi &amp; Labib</h3>
