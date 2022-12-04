@@ -89,7 +89,8 @@ const DateSection: FC<DateSectionPropsType> = ({
             className={stylesButton.btn_secondaryLongSmall}>
             {isConfirm ? 'Lihat' : 'Konfirmasi'} Kehadiran
           </button>
-          <div className={styles.sectionGalery}>
+          
+          {/* <div className={styles.sectionGalery}>
             <h3>GALLERI KAMI</h3>
           </div>
           <div className={styles.gallery}>
@@ -115,7 +116,7 @@ const DateSection: FC<DateSectionPropsType> = ({
               </div>
             ))}
 
-          </div>
+          </div> */}
         </div>
       </div>
 
